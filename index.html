@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Smart Waste Segregation System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="control-panel" aria-label="Waste classifier controls">
+      <div class="brand-row">
+        <div class="mark">AI</div>
+        <div>
+          <p class="eyebrow">SDG 11, 12, 13</p>
+          <h1>Smart Waste Segregation</h1>
+        </div>
+      </div>
+
+      <div class="upload-box">
+        <label for="wasteImage">Upload waste item image</label>
+        <input id="wasteImage" type="file" accept="image/*">
+        <p>Choose a clear photo, then add visible features for a more reliable result.</p>
+      </div>
+
+      <div class="feature-grid" aria-label="Observed features">
+        <label><input type="checkbox" value="organic"> Food / organic</label>
+        <label><input type="checkbox" value="paper"> Paper / cardboard</label>
+        <label><input type="checkbox" value="plastic"> Plastic bottle / wrapper</label>
+        <label><input type="checkbox" value="metal"> Metal can / foil</label>
+        <label><input type="checkbox" value="glass"> Glass item</label>
+        <label><input type="checkbox" value="battery"> Battery / e-waste</label>
+        <label><input type="checkbox" value="medical"> Medical / sharp waste</label>
+        <label><input type="checkbox" value="dirty"> Dirty / mixed material</label>
+      </div>
+
+      <div class="input-row">
+        <label for="itemName">Optional item name</label>
+        <input id="itemName" type="text" placeholder="Example: banana peel, plastic bottle, battery">
+      </div>
+
+      <button id="classifyBtn" type="button">Classify Waste</button>
+    </section>
+
+    <section class="result-panel" aria-label="Classification result">
+      <div class="image-frame">
+        <img id="preview" alt="Uploaded waste preview">
+        <div id="emptyPreview">Image preview</div>
+      </div>
+
+      <div id="resultCard" class="result-card">
+        <p class="eyebrow">Predicted category</p>
+        <h2 id="category">Waiting for input</h2>
+        <div class="confidence" aria-label="Confidence score">
+          <span id="confidenceText">0%</span>
+          <div><i id="confidenceBar"></i></div>
+        </div>
+        <p id="reason">Upload an image or select features to run the classifier.</p>
+      </div>
+
+      <div class="agent-card">
+        <p class="eyebrow">AI agent recommendation</p>
+        <ul id="recommendations">
+          <li>Clean recyclable items before disposal.</li>
+          <li>Separate hazardous items from household bins.</li>
+          <li>Compost organic waste when possible.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <section class="info-band">
+    <article>
+      <h3>Problem</h3>
+      <p>Mixed waste reduces recycling quality, increases landfill load, and creates health risks for sanitation workers.</p>
+    </article>
+    <article>
+      <h3>Solution</h3>
+      <p>The prototype uses image input, observed features, and rule-based AI scoring to classify waste into the correct bin.</p>
+    </article>
+    <article>
+      <h3>Impact</h3>
+      <p>Better segregation improves recycling, composting, and safe handling of hazardous waste in smart communities.</p>
+    </article>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
